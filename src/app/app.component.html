@@ -1,3 +1,32 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<!-- el ion-split-pane se usa para que se vea bien (sin tanto espacio desperdiciado) en una tablet en landscape. 
+La idea es que aparezca el menu desplegado a la izquierda
+Hay que ponerle el contentId para decirle que parte se ve afectada
+Hay que establecer la propiedad autoHide=false en ion-menu-toggle-->
+  <ion-split-pane when="md" contentId="main">
+
+    <ion-menu side="start" menuId="first" contentId="main">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Start Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+  <!-- ion-menu-toggle sirve para que el menu se cierre cuando clicamos alguna de las opciones -->
+          <ion-menu-toggle *ngFor="let c of componentes | async"  [autoHide]="false">
+            <ion-item  [routerLink]="c.redirectTo">
+              <ion-icon slot="start" [name]="c.icon" color="primary"></ion-icon>
+              <ion-label>{{c.name}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+
+    <ion-router-outlet id="main"></ion-router-outlet>
+
+  </ion-split-pane>
 </ion-app>

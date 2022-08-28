@@ -1,0 +1,24 @@
+<!-- esta es la estructura básica;
+hay que ir a tabs-routing.module.ts para definir las rutas hijas de cada tab 
+al ser rutas hijas las cargará como tales, es decir no redirecciona ej: http://localhost:8100/tabs/account -->
+
+<ion-tabs>
+  <ion-tab-bar slot=""buttom>
+
+    <ion-tab-button tab="account">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Account</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="contact">
+      <ion-icon name="call-outline"></ion-icon>
+      <ion-label>Contacts</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings">
+      <ion-icon name="settings-outline"></ion-icon>
+      <ion-label>Settings</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
